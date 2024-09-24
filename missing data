@@ -1,0 +1,9 @@
+import pandas as pd
+df = pd.read_csv('triveni2.csv')
+print("Before replacing missing values:")
+print(df)
+numeric_cols = df.select_dtypes(include='number').columns
+df[numeric_cols] = df [numeric_cols].fillna(df[numeric_cols].mean())
+print("\nAfter replacing missing values:")
+print(df)
+df.to_csv('Updatedtriveni2.csv', index=False)
